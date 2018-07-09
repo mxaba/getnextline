@@ -1,0 +1,46 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    GNL_explaination.txt                               :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: mxaba <marvin@42.fr>                       +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2018/06/18 08:35:42 by mxaba             #+#    #+#              #
+#    Updated: 2018/06/18 12:15:42 by mxaba            ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+* Create a function that will read the line of the passed file.txt... afetr that you should know what you need and why should you use it?
+	-* You will need a viriable pointer (this virable will a buffer for temporary, on that that buffer and the null teminating 
+	charatcer).
+	-> after you have done creating the viarable, check if there is something to read or not at [0], if there is nothing to read
+	then return(0);
+	-> call the string character, to check if the buffer that is reading has a new line, check it until NULL.
+		- then assign that string character to '\0', after it has found a neline.
+		- assign line to what you have found in the holder using strdup.
+		- call your temp virable to hold the position of the buffer where you found the '\n' and the null character.
+		- fre the temp.
+		-> check if them is equal to NULL
+			- asign what is in the dupplicated temp virable to the buffer.
+			- free the temp.
+	-> lets say that there is no new line in the buffer.
+		- assign line to the dupplicated buffer
+		- delete the memory of the buffer.
+	-> then it should return read.
+
+* Get next line holds two virables by default. the fd and the **(double) pointer line.
+	*you need to create viriables, char of buff that you will initialize it to the buff_size,  and then a satic virable tht will
+	be used by the function to store some data. give it a fd limit. create a temp viriable to hold what you will be joining what
+	your statit viriable is holding with ther buffer.
+	-> Check if the your read work or your wont encounter any error, if then is the other way around return error.
+	-> Check if your statict viriabvle has a something in it, then if there is assign it to string and set your size to 0
+	->look for a new line on that static virable  until NULL
+		- call read
+		- set the buffer at what you read to '\0'
+		- if the read is equal to zero then break (coz there is nothing to read)
+		- assign your temp to joining the static and the buffer.
+		- free the static viriable.
+		- after free, assign it to the dumplicated string of temp.
+		-> check if that static viriable is zero, then assign it to strnew the size to zero;
+		-free your temp
+	after it has done reading your file them it should work
